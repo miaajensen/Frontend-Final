@@ -7,6 +7,7 @@ function Header() {
             <nav className="nav-menu">
                 <Link to="/" className="nav-link">Home</Link> 
                 <Link to="/favorites" className="nav-link">Favorites</Link>
+                <Link to="/login" className="nav-link">Login</Link>
             </nav>
         </header>
     );
