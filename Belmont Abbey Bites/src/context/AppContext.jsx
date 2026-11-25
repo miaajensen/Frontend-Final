@@ -5,6 +5,7 @@ const AppContext = createContext();
 export function AppProvider({ children }) {
     const [location, setLocation] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState('');
+    const [selectedRestaurant, setSelectedRestaurant] = useState(null);
     const [favorites, setFavorites] = useState([]);
 
     return (
@@ -14,6 +15,8 @@ export function AppProvider({ children }) {
                 setLocation,
                 selectedCategory,
                 setSelectedCategory,
+                selectedRestaurant,
+                setSelectedRestaurant,
                 favorites,
                 setFavorites
             }}

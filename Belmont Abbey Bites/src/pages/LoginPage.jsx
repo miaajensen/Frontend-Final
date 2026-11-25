@@ -1,6 +1,14 @@
+import "../css/login.css";
+
 function Login() {
     return (
-        <h1 className="Login-page-title">Welcome to Belmont Abbey Bites!</h1>
+        <main className="simple-page">
+            <section className="page-card login-card">
+                <span className="eyebrow">Belmont Abbey</span>
+                <h2 className="Login-page-title">Welcome Crusader!</h2>
+                <p>Save your favorite campus spots and keep them close.</p>
+            </section>
+        </main>
     );
 }
 

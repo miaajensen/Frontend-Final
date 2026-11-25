@@ -1,0 +1,41 @@
+.simple-page {
+  min-height: calc(100vh - 76px);
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: 48px 20px;
+  background: linear-gradient(180deg, #fafafa 0%, #f4f5f7 100%);
+}
+
+.page-card {
+  width: min(540px, 100%);
+  padding: 48px;
+  border: 1px solid #e7e8ec;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 18px 50px rgba(35, 38, 47, 0.08);
+  text-align: center;
+}
+
+.favorites-page-title {
+  margin: 0 0 12px;
+  color: #171b25;
+  font-size: clamp(34px, 5vw, 48px);
+  letter-spacing: -2px;
+}
+
+.page-card p {
+  margin: 0;
+  color: #717786;
+  font-size: 17px;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 10px;
+  color: #b91c2e;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}

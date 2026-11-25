@@ -54,6 +54,10 @@ body {
   margin: 0;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 #root {
   width: 1126px;
   max-width: 100%;
@@ -93,6 +97,38 @@ h2 {
 }
 p {
   margin: 0;
+}
+
+.restaurant-container {
+  display: grid;
+  gap: 12px;
+  padding: 24px;
+}
+
+.restaurant-card {
+  width: 100%;
+  padding: 16px;
+  text-align: left;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.restaurant-card:hover,
+.restaurant-card:focus-visible {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+
+.restaurant-card h3 {
+  margin: 0 0 6px;
+  color: var(--text-h);
+}
+
+.restaurant-details-page {
+  padding: 24px;
 }
 
 code,

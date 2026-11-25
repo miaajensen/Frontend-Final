@@ -1,47 +1,52 @@
-
-// function RestaurantDetails() {
-
-//     const [isFavorite, setIsFavorite] = useState(false);
-
-//     useEffect(() => {
-//         const favorites = JSON.parse(localStorage.getItem('favoriteRestaurant')) || [];
-//         const isRestaurantFavorite = favorites.some(fav => fav.id === DeviceMotionEvent.id);
-//         setIsFavorite(isRestaurantFavorite);
-//     }, [restaurant.id]);
-
-//     const toggleFavorites = () => {
-//         const favorites = JSON.parse(localStorage.getItem('favoriteRestaurant')) || [];
-//         const isRestaurantFavorite = favorites.some(fav => fav.id === restaurant.id);
-//         const updatedFavorites = isRestaurantFavorite
-//             ? favorites.filter(fav => fav.id !== restaurant.id)
-//             : [...favorites, restaurant]
-
-//         localStorage.setItem('favoriteRestaurant', JSON.stringify(updatedFavorites));
-//         setIsFavorite(!isRestaurantFavorite);
-//         onFavoriteChange?.(updatedFavorites);
-//     };
-    
-//     return (
-//         <h1 className="restaurant-details-title">{restaurantName}</h1>
-//     );
-// }
-
-// export default RestaurantDetails;
-
-
-import { useParams } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useAppContext } from "../context/AppContext";
+import "../css/restaurantDetails.css";
 
 function RestaurantDetails() {
+    const { id } = useParams();
+    const { selectedRestaurant } = useAppContext();
+    const [restaurant, setRestaurant] = useState(selectedRestaurant);
 
-  const { id } = useParams();
+    useEffect(() => {
+        if (selectedRestaurant) {
+            setRestaurant(selectedRestaurant);
+            return;
+        }
 
-  return (
-    <main>
-      <h1>Restaurant Details</h1>
+        const savedRestaurant = JSON.parse(
+            localStorage.getItem("selectedRestaurant") || "null"
+        );
 
-      <p>Restaurant ID: {id}</p>
-    </main>
-  );
+        if (savedRestaurant?.id === id) {
+            setRestaurant(savedRestaurant);
+        }
+    }, [id, selectedRestaurant]);
+
+    if (!restaurant) {
+        return (
+            <main className="restaurant-details-page">
+                <h1>Restaurant not found</h1>
+                <p>Select a restaurant from the results page to view its details.</p>
+            </main>
+        );
+    }
+
+    return (
+        <main className="restaurant-details-page">
+            <h1>{restaurant.name}</h1>
+            <p>{restaurant.address}</p>
+            {restaurant.category && (
+                <p><strong>Category:</strong> {restaurant.category}</p>
+            )}
+        </main>
+    );
 }
 
 export default RestaurantDetails;
+
+
+
+
+
+

@@ -1,5 +1,6 @@
 import Header from '../components/Header.jsx';
 import CategoryCard from '../components/Category-card.jsx';
+import '../css/homepage.css';
 
 
 const categories = [
